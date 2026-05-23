@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "RastroFinoAPI\\Controllers\\ProductosController.cs",
               "ToolTip": "C:\\Users\\demia\\Desktop\\rama\\api\\RastroFinoAPI\\RastroFinoAPI\\Controllers\\ProductosController.cs",
               "RelativeToolTip": "RastroFinoAPI\\Controllers\\ProductosController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAmwFsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwEgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-21T20:37:41.495Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "RastroFinoAPI\\Models\\Genero.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T20:26:40.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-21T20:26:40.846Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "RastroFinoAPI\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T20:24:30.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-21T20:24:30.62Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "RastroFinoAPI\\Controllers\\GenerosController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T20:22:41.865Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-21T20:22:41.865Z"
             }
           ]
         }

@@ -31,11 +31,13 @@
       <input type="text" id="prodImagen" placeholder="URL de la imagen">
       <input type="number" id="prodMl" placeholder="ML (solo perfumes)">
 
+      <label for="prodCategoria">Categoría</label>
       <select id="prodCategoria">
         <option value="">Seleccionar categoría</option>
       </select>
 
-      <select id="prodGenero">
+      <label for="prodGenero">Género (opcional)</label>
+      <select id="prodGenero" title="Seleccionar género (opcional)">
         <option value="">Seleccionar género (opcional)</option>
       </select>
 
@@ -61,6 +63,8 @@
   </footer>
 
   <script src="admin.js"></script>
+<!--Cartel temporal activacion / desactivacion producto-->
+<div id="toast"></div>
 
 </body>
 </html>

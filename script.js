@@ -6,27 +6,39 @@ async function cargarProductos() {
   const response = await fetch(`${API_URL}/api/productos`);
   const productos = await response.json();
 
+//para cambiar la cantidad de productos a comprar
   grid.innerHTML = "";
-
   productos.forEach((producto, index) => {
     const id = `cant${index}`;
     grid.innerHTML += `
-      <div class="card">
-        <img src="${producto.imagen || 'https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop'}">
-        <div class="contenido">
-          <h2>${producto.nombre}</h2>
-          <p class="precio">$${producto.precio.toLocaleString()}</p>
-          <div class="cantidad">
-            <label>Cantidad:</label>
-            <input type="number" min="1" value="1" id="${id}">
-          </div>
-          <button onclick="comprar('${producto.nombre}', ${producto.precio}, '${id}')">
-            Comprar
-          </button>
-        </div>
+ <div class="card">
+    <img src="${producto.imagen || 'https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop'}">
+    <div class="contenido">
+      <h2>${producto.nombre}</h2>
+      <p class="precio">$${producto.precio.toLocaleString()}</p>
+      <div class="cantidad">
+        <button onclick="restar('${id}')">-</button>
+        <span id="${id}">1</span>
+        <button onclick="sumar('${id}')">+</button>
       </div>
-    `;
+      <button onclick="comprar('${producto.nombre}', ${producto.precio}, '${id}')">
+        Comprar
+      </button>
+    </div>
+  </div>
+`;
   });
+}
+
+function sumar(id) {
+  let span = document.getElementById(id);
+  span.innerText = parseInt(span.innerText) + 1;
+}
+
+function restar(id) {
+  let span = document.getElementById(id);
+  let actual = parseInt(span.innerText);
+  if(actual > 1) span.innerText = actual - 1;
 }
 
 cargarProductos();
@@ -38,13 +50,13 @@ let totalProducto = 0;
 
 function comprar(nombre, precio, inputId){
 
-  let cantidad = document.getElementById(inputId).value;
+  let cantidad = document.getElementById(inputId).innerText;
 
 if (isNaN(cantidad) || cantidad <1) {
     cantidad = 1;
-    document.getElementById(inputId).value = 1;
+    document.getElementById(inputId).innerText = 1;
 }
-
+//para calcular el precio
   let total = precio * cantidad;
 
   nombreProducto = nombre;

@@ -202,3 +202,19 @@ footer{
   margin-top:10px;
   color:#d4af37;
 }
+
+/*Para poner la notificacion de activacion / desactivacion de cartel de producto (ADMIN)*/
+#toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #d4af37;
+  color: black;
+  padding: 70px 50px;
+  border-radius: 12px;
+  display: none; /* oculto por defecto */
+}
+
+#toast.visible {
+  display: block;
+}
