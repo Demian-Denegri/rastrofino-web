@@ -1,70 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Rastro Fino</title>
-  
-  <link rel="icon" type="image/jpeg" href="https://instagram.faep4-2.fna.fbcdn.net/v/t51.82787-19/701088291_18107075440813195_98303434272551663_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.faep4-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2gHAq4b73n3TVkaH6YsFGBTd1UafEzDJjrgel1_1SR0N2_HjKFUa6xfm9KDo2uQQFtNbzs1BUkr3r06Mrg1gq9eo&_nc_ohc=bI721LqxQB0Q7kNvwE4bXra&_nc_gid=FEboTaTK27wW0AS02xjVNA&edm=ADDLYBMBAAAA&ccb=7-5&oh=00_Af7K87TaKQd5P-5GZB3AKhcWA8bh-6UG5riYjBQqhJNSmQ&oe=6A12537D&_nc_sid=56bdfd">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Rastro Fino</title>
 
-  <link rel="stylesheet" href="style.css">
-</head>
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="https://instagram.faep4-2.fna.fbcdn.net/v/t51.82787-19/701088291_18107075440813195_98303434272551663_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.faep4-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2gHAq4b73n3TVkaH6YsFGBTd1UafEzDJjrgel1_1SR0N2_HjKFUa6xfm9KDo2uQQFtNbzs1BUkr3r06Mrg1gq9eo&_nc_ohc=bI721LqxQB0Q7kNvwE4bXra&_nc_gid=FEboTaTK27wW0AS02xjVNA&edm=ADDLYBMBAAAA&ccb=7-5&oh=00_Af7K87TaKQd5P-5GZB3AKhcWA8bh-6UG5riYjBQqhJNSmQ&oe=6A12537D&_nc_sid=56bdfd"
+    />
 
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <header>
-    <div class="hero">
-      <h1>Panel de Administración</h1>
-      <p>Rastro Fino</p>
-    </div>
-  </header>
+  <body>
+    <header>
+      <div class="hero">
+        <h1>Panel de Administración</h1>
+        <p>Rastro Fino</p>
+      </div>
+    </header>
+    <nav class="admin-nav">
+      <a href="#pedidos">Ver Pedidos</a>
+      <a href="#gridAdmin">Ver Productos</a>
+    </nav>
 
-  <!-- Formulario nuevo producto -->
-  <section class="productos">
-    <h2 class="titulo">Cargar Producto Nuevo</h2>
-    <div class="admin-form">
+    <!-- Formulario nuevo producto -->
+    <section class="productos">
+      <h2 class="titulo">Cargar Producto Nuevo</h2>
+      <div class="admin-form">
+        <input type="text" id="prodNombre" placeholder="Nombre del producto" />
+        <input type="text" id="prodDescripcion" placeholder="Descripción" />
+        <input type="number" id="prodPrecio" placeholder="Precio" />
+        <input type="number" id="prodStock" placeholder="Stock" />
+        <input type="text" id="prodImagen" placeholder="URL de la imagen" />
+        <input type="number" id="prodMl" placeholder="ML (solo perfumes)" />
 
-      <input type="text" id="prodNombre" placeholder="Nombre del producto">
-      <input type="text" id="prodDescripcion" placeholder="Descripción">
-      <input type="number" id="prodPrecio" placeholder="Precio">
-      <input type="number" id="prodStock" placeholder="Stock">
-      <input type="text" id="prodImagen" placeholder="URL de la imagen">
-      <input type="number" id="prodMl" placeholder="ML (solo perfumes)">
+        <label for="prodCategoria">Categoría</label>
+        <select id="prodCategoria">
+          <option value="">Seleccionar categoría</option>
+        </select>
 
-      <label for="prodCategoria">Categoría</label>
-      <select id="prodCategoria">
-        <option value="">Seleccionar categoría</option>
-      </select>
+        <label for="prodGenero">Género (opcional)</label>
+        <select id="prodGenero" title="Seleccionar género (opcional)">
+          <option value="">Seleccionar género (opcional)</option>
+        </select>
 
-      <label for="prodGenero">Género (opcional)</label>
-      <select id="prodGenero" title="Seleccionar género (opcional)">
-        <option value="">Seleccionar género (opcional)</option>
-      </select>
+        <button onclick="crearProducto()">Guardar Producto</button>
+      </div>
+    </section>
 
-      <button onclick="crearProducto()">Guardar Producto</button>
+    <!-- Lista de productos -->
+    <section class="productos">
+      <h2 class="titulo">Productos</h2>
+      <div class="grid" id="gridAdmin"></div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Pedidos -->
+    <section class="productos" id="pedidos">
+      <h2 class="titulo">Pedidos</h2>
+      <div id="listaPedidos"></div>
+    </section>
 
-  <!-- Lista de productos -->
-  <section class="productos">
-    <h2 class="titulo">Productos</h2>
-    <div class="grid" id="gridAdmin"></div>
-  </section>
+    <footer>© 2026 Rastro Fino - Panel Admin</footer>
 
-  <!-- Pedidos -->
-  <section class="productos">
-    <h2 class="titulo">Pedidos</h2>
-    <div id="listaPedidos"></div>
-  </section>
-
-  <footer>
-    © 2026 Rastro Fino - Panel Admin
-  </footer>
-
-  <script src="admin.js"></script>
-<!--Cartel temporal activacion / desactivacion producto-->
-<div id="toast"></div>
-
-</body>
+    <script src="admin.js"></script>
+    <!--Cartel temporal activacion / desactivacion producto-->
+    <div id="toast"></div>
+  </body>
 </html>

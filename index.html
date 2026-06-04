@@ -1,102 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rastro Fino</title>
-  
-  <link rel="icon" type="image/jpeg" href="https://instagram.faep4-2.fna.fbcdn.net/v/t51.82787-19/701088291_18107075440813195_98303434272551663_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.faep4-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2gHAq4b73n3TVkaH6YsFGBTd1UafEzDJjrgel1_1SR0N2_HjKFUa6xfm9KDo2uQQFtNbzs1BUkr3r06Mrg1gq9eo&_nc_ohc=bI721LqxQB0Q7kNvwE4bXra&_nc_gid=FEboTaTK27wW0AS02xjVNA&edm=ADDLYBMBAAAA&ccb=7-5&oh=00_Af7K87TaKQd5P-5GZB3AKhcWA8bh-6UG5riYjBQqhJNSmQ&oe=6A12537D&_nc_sid=56bdfd">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rastro Fino</title>
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="https://instagram.faep4-2.fna.fbcdn.net/v/t51.82787-19/701088291_18107075440813195_98303434272551663_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.faep4-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2gHAq4b73n3TVkaH6YsFGBTd1UafEzDJjrgel1_1SR0N2_HjKFUa6xfm9KDo2uQQFtNbzs1BUkr3r06Mrg1gq9eo&_nc_ohc=bI721LqxQB0Q7kNvwE4bXra&_nc_gid=FEboTaTK27wW0AS02xjVNA&edm=ADDLYBMBAAAA&ccb=7-5&oh=00_Af7K87TaKQd5P-5GZB3AKhcWA8bh-6UG5riYjBQqhJNSmQ&oe=6A12537D&_nc_sid=56bdfd"
+    />
 
-  <header>
-    <div class="hero">
-      <h1>Rastro Fino</h1>
-      <p>Perfumes exclusivos con elegancia y estilo</p>
-    </div>
-  </header>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <h1>Rastro Fino</h1>
+        <p>Perfumes exclusivos con elegancia y estilo</p>
+      </div>
+    </header>
 
-  <section class="productos">
-
-    <h2 class="titulo">Nuestros Perfumes</h2>
-
-    <div class="grid" id="grid">
-
-
-    </div>
-
-  </section>
-
-  <footer>
-    © 2026 Luxury Essence - Todos los derechos reservados
-  </footer>
-
-  <!-- Modal -->
-  <div class="modal" id="modal">
-
-    <div class="modal-content">
-
-      <h2>Resumen de Compra</h2>
-        <label>Nombre:</label>
-        <input type="text" id="clienteNombre" placeholder="Tu nombre">
-
-        <label>Apellido:</label>
-        <input type="text" id="clienteApellido" placeholder="Tu Apellido">
-
-        <label>Email:</label>
-        <input type="text" id="clienteEmail" placeholder="Tu Email">
-
-        <label>Telefono:</label>
-        <input type="text" id="clienteTelefono" placeholder="Tu Telefono">
-        
-        <label>Dirección:</label>
-        <input type="text" id="clienteDireccion" placeholder="Tu dirección">
-
-      <p id="producto"></p>
-      <p id="cantidad"></p>
-      <p id="total"></p>
-
-      <label for="metodoPago">Método de pago:</label>
-
-      <select id="metodoPago">
-
-        <option value="Transferencia">
-          Transferencia
-        </option>
-
-        <option value="Efectivo">
-          Efectivo
-        </option>
-
-      </select>
-
-      <div id="infoTransferencia" class="transferencia">
-
-        <p><strong>Alias:</strong> Rama.perfume.mp</p>
-
-        <p><strong>CBU:</strong> 0000003100000000000000</p>
-
-        <p class="texto-transferencia">
-          Enviar comprobante por WhatsApp
-        </p>
-
+    <section class="productos">
+      <h2 class="titulo">Nuestros Perfumes</h2>
+      <div class="buscador">
+        <input type="text" id="busqueda" placeholder="Buscar perfume..." />
       </div>
 
-      <button id="whatsappBtn">
-        Confirmar pedido por WhatsApp
-      </button>
+      <div class="grid" id="grid"></div>
+      <div class="grid" id="grid"></div>
+    </section>
 
-      <button class="cerrar" onclick="cerrarModal()">
-        Cerrar
-      </button>
+    <footer>© 2026 Luxury Essence - Todos los derechos reservados</footer>
 
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2>Resumen de Compra</h2>
+        <label>Nombre:</label>
+        <input type="text" id="clienteNombre" placeholder="Tu nombre" />
+
+        <label>Apellido:</label>
+        <input type="text" id="clienteApellido" placeholder="Tu Apellido" />
+
+        <label>Email:</label>
+        <input type="text" id="clienteEmail" placeholder="Tu Email" />
+
+        <label>Telefono:</label>
+        <input type="text" id="clienteTelefono" placeholder="Tu Telefono" />
+
+        <label>Dirección:</label>
+        <input type="text" id="clienteDireccion" placeholder="Tu dirección" />
+
+        <p id="producto"></p>
+        <p id="cantidad"></p>
+        <p id="total"></p>
+
+        <label for="metodoPago">Método de pago:</label>
+
+        <select id="metodoPago">
+          <option value="Transferencia">Transferencia</option>
+
+          <option value="Efectivo">Efectivo</option>
+        </select>
+
+        <div id="infoTransferencia" class="transferencia">
+          <p><strong>Alias:</strong> Rama.perfume.mp</p>
+
+          <p><strong>CBU:</strong> 0000003100000000000000</p>
+
+          <p class="texto-transferencia">Enviar comprobante por WhatsApp</p>
+        </div>
+
+        <button id="whatsappBtn">Confirmar pedido por WhatsApp</button>
+
+        <button class="cerrar" onclick="cerrarModal()">Cerrar</button>
+      </div>
     </div>
 
-  </div>
-
-  <script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
