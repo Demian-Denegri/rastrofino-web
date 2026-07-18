@@ -140,8 +140,8 @@ document
 
     let clienteGuardado = await responseCliente.json();
 
-    let pedido = {
-      idCliente: clienteGuardado.idCliente,
+let pedido = {
+      idCliente: clienteGuardado.idCliente || clienteGuardado.idcliente,
       estado: "Pendiente",
       total: totalProducto,
     };
