@@ -8,7 +8,7 @@ async function cargarProductos() {
   const response = await fetch(`${API_URL}/api/productos`);
   const productos = await response.json();
 
-  productosGlobal = productos; // guardo los productos globalmente
+  productosGlobal = productos;
 
   grid.innerHTML = "";
   productos.forEach((producto, index) => {
@@ -35,9 +35,7 @@ async function cargarProductos() {
 
 function mostrarProductos(productos) {
   const grid = document.getElementById("grid");
-
   grid.innerHTML = "";
-
   productos.forEach((producto, index) => {
     const id = `cant${index}`;
     grid.innerHTML += `
@@ -106,7 +104,6 @@ function comprar(nombre, precio, inputId) {
 document.getElementById("metodoPago").addEventListener("change", function () {
   let metodo = this.value;
   let info = document.getElementById("infoTransferencia");
-
   if (metodo === "Transferencia") {
     info.style.display = "block";
   } else {
@@ -114,73 +111,69 @@ document.getElementById("metodoPago").addEventListener("change", function () {
   }
 });
 
-document
-  .getElementById("whatsappBtn")
-  .addEventListener("click", async function () {
-    let metodo = document.getElementById("metodoPago").value;
+document.getElementById("whatsappBtn").addEventListener("click", async function () {
+  let metodo = document.getElementById("metodoPago").value;
 
-    let nombre = document.getElementById("clienteNombre").value;
-    let apellido = document.getElementById("clienteApellido").value;
-    let email = document.getElementById("clienteEmail").value;
-    let telefono = document.getElementById("clienteTelefono").value;
+  let nombre = document.getElementById("clienteNombre").value;
+  let apellido = document.getElementById("clienteApellido").value;
+  let email = document.getElementById("clienteEmail").value;
+  let telefono = document.getElementById("clienteTelefono").value;
 
-    if (!nombre || !apellido || !email || !telefono) {
-      alert("Por favor completá todos los campos obligatorios.");
-      return;
-    }
+  if (!nombre || !apellido || !email || !telefono) {
+    alert("Por favor completá todos los campos obligatorios.");
+    return;
+  }
 
-    // defino el objeto cliente antes de enviarlo
-    let cliente = { nombre, apellido, email, telefono };
+  let cliente = { nombre, apellido, email, telefono };
 
-    let responseCliente = await fetch(`${API_URL}/api/clientes`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(cliente),
-    });
-
-    let clienteGuardado = await responseCliente.json();
-
-let pedido = {
-      idCliente: clienteGuardado.idCliente || clienteGuardado.idcliente,
-      estado: "Pendiente",
-      total: totalProducto,
-    };
-
-    await fetch(`${API_URL}/api/pedidos`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(pedido),
-    });
-
-    let mensajeWhatsapp =
-      `Hola! Quiero realizar un pedido:%0A%0A` +
-      `Perfume: ${nombreProducto}%0A` +
-      `Cantidad: ${cantidadProducto}%0A` +
-      `Total: $${totalProducto}%0A` +
-      `Método de pago: ${metodo}`;
-
-    if (metodo === "Transferencia") {
-      mensajeWhatsapp += `%0A%0AYa realicé la transferencia.`;
-    }
-
-    let numero = "5491140952888";
-    let url = `https://wa.me/${numero}?text=${mensajeWhatsapp}`;
-    window.open(url, "_blank");
+  let responseCliente = await fetch(`${API_URL}/api/clientes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cliente),
   });
+
+  let clienteGuardado = await responseCliente.json();
+  console.log("Cliente guardado:", clienteGuardado);
+
+  let pedido = {
+    idCliente: clienteGuardado.idCliente || clienteGuardado.idcliente,
+    estado: "Pendiente",
+    total: totalProducto,
+  };
+  console.log("Pedido a enviar:", pedido);
+
+  await fetch(`${API_URL}/api/pedidos`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(pedido),
+  });
+
+  let mensajeWhatsapp =
+    `Hola! Quiero realizar un pedido:%0A%0A` +
+    `Perfume: ${nombreProducto}%0A` +
+    `Cantidad: ${cantidadProducto}%0A` +
+    `Total: $${totalProducto}%0A` +
+    `Método de pago: ${metodo}`;
+
+  if (metodo === "Transferencia") {
+    mensajeWhatsapp += `%0A%0AYa realicé la transferencia.`;
+  }
+
+  let numero = "5491140952888";
+  let url = `https://wa.me/${numero}?text=${mensajeWhatsapp}`;
+  window.open(url, "_blank");
+});
 
 function cerrarModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-// filtro de busqueda funciona con productosGlobal
 document.addEventListener("input", function (e) {
   if (e.target.id === "busqueda") {
     const texto = e.target.value.toLowerCase();
-
     const filtrados = productosGlobal.filter((producto) =>
-      producto.nombre.toLowerCase().includes(texto),
+      producto.nombre.toLowerCase().includes(texto)
     );
-
     mostrarProductos(filtrados);
   }
 });
