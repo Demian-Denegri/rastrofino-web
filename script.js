@@ -1,4 +1,4 @@
-const API_URL = "https://localhost:7099";
+const API_URL = "https://rastrofino-api.onrender.com";
 
 let productosGlobal = [];
 
