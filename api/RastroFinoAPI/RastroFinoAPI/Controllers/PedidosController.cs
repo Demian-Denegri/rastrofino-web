@@ -42,6 +42,16 @@ namespace RastroFinoAPI.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetPedidos), new { id = pedido.IdPedido }, pedido);
         }
+
+        // PUT: api/pedidos/1 (cambia el estado de un pedido desde el panel admin)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> EditarPedido(int id, Pedido pedido)
+        {
+            if (id != pedido.IdPedido) return BadRequest();
+            _context.Entry(pedido).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
         
