@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //Llamo a la api
 const API_URL = "https://rastrofino-api.onrender.com";
 
@@ -428,4 +427,3 @@ cargarGeneros();
 cargarProductosAdmin();
 // Carga todos los pedidos con los datos del cliente
 cargarPedidos();
->>>>>>> 80a292e7a936acef7405765e7cfab90b20cb8da5
