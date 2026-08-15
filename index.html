@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0b0d" />
     <title>Rastro Fino</title>
 
     <link
@@ -11,32 +12,78 @@
       href="https://instagram.faep4-2.fna.fbcdn.net/v/t51.82787-19/701088291_18107075440813195_98303434272551663_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.faep4-2.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2gHAq4b73n3TVkaH6YsFGBTd1UafEzDJjrgel1_1SR0N2_HjKFUa6xfm9KDo2uQQFtNbzs1BUkr3r06Mrg1gq9eo&_nc_ohc=bI721LqxQB0Q7kNvwE4bXra&_nc_gid=FEboTaTK27wW0AS02xjVNA&edm=ADDLYBMBAAAA&ccb=7-5&oh=00_Af7K87TaKQd5P-5GZB3AKhcWA8bh-6UG5riYjBQqhJNSmQ&oe=6A12537D&_nc_sid=56bdfd"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <header>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#inicio">Rastro Fino</a>
+      <ul class="navbar-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Colección</a></li>
+      </ul>
+      <a class="navbar-cta" href="#productos">Comprar</a>
+    </nav>
+
+    <header id="inicio">
       <div class="hero">
-        <h1>Rastro Fino</h1>
-        <p>Perfumes exclusivos con elegancia y estilo</p>
+        <div class="hero-contenido">
+          <p class="hero-overline">Perfumería de autor</p>
+          <h1>Rastro Fino</h1>
+          <div class="hero-divisor"><span></span><span></span><span></span></div>
+          <p class="hero-tagline">Perfumes exclusivos con elegancia y estilo</p>
+          <a class="hero-cta" href="#productos">Descubrir la colección</a>
+        </div>
       </div>
+      <div class="scroll-indicator"><span></span></div>
     </header>
 
-    <section class="productos">
-      <h2 class="titulo">Nuestros Perfumes</h2>
-      <div class="buscador">
-        <input type="text" id="busqueda" placeholder="Buscar perfume..." />
+    <section class="productos" id="productos">
+      <div class="seccion-titulo">
+        <h2 class="titulo">Nuestros Perfumes</h2>
+        <p class="subtitulo">Una selección curada para quienes valoran lo exquisito</p>
       </div>
 
-      <div class="grid" id="grid"></div>
+      <div class="buscador">
+        <div class="buscador-caja">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="busqueda" placeholder="Buscar perfume..." />
+        </div>
+      </div>
+
       <div class="grid" id="grid"></div>
     </section>
 
-    <footer>© 2026 Rastro Fino - Todos los derechos reservados</footer>
+    <footer>
+      <div class="footer-marca">Rastro Fino</div>
+      <p>Perfumes exclusivos con elegancia y estilo</p>
+      <div class="footer-divisor"></div>
+      <p class="footer-copy">© 2026 Rastro Fino - Todos los derechos reservados</p>
+    </footer>
 
     <!-- Modal -->
     <div class="modal" id="modal">
       <div class="modal-content">
         <h2>Resumen de Compra</h2>
+
         <label>Nombre:</label>
         <input type="text" id="clienteNombre" placeholder="Tu nombre" />
 
@@ -60,20 +107,16 @@
 
         <select id="metodoPago">
           <option value="Transferencia">Transferencia</option>
-
           <option value="Efectivo">Efectivo</option>
         </select>
 
         <div id="infoTransferencia" class="transferencia">
           <p><strong>Alias:</strong> Rama.perfume.mp</p>
-
           <p><strong>CBU:</strong> 0000003100000000000000</p>
-
           <p class="texto-transferencia">Enviar comprobante por WhatsApp</p>
         </div>
 
         <button id="whatsappBtn">Confirmar pedido por WhatsApp</button>
-
         <button class="cerrar" onclick="cerrarModal()">Cerrar</button>
       </div>
     </div>
